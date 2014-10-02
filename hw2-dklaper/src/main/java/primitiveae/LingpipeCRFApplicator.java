@@ -15,7 +15,7 @@ import utils.Feature;
 import customtypes.*;
 
 import com.aliasi.crf.ChainCrf;
-import com.aliasi.tag.Tagging;
+import com.aliasi.tag.ScoredTagging;
 import com.aliasi.util.AbstractExternalizable;
 
 /**
@@ -52,7 +52,8 @@ public class LingpipeCRFApplicator extends JCasAnnotator_ImplBase {
 		
 		String sofa = aJCas.getSofaDataString();
 		// run sequence through crf
-		Tagging<Feature> tagresult = crf.tag(data);
+		ScoredTagging<Feature> tagresult = crf.tagNBestConditional(data, 1).next();
+		double conf = tagresult.score();
 		int begin = -1;
 		int i = 0;
 		// recover gene sequences from tagging
@@ -74,6 +75,8 @@ public class LingpipeCRFApplicator extends JCasAnnotator_ImplBase {
 				GeneMention gen = new GeneMention(aJCas, begin, tok.getEnd());
 				String mention = getTextWS(begin, tok.getEnd(), sofa);
 				gen.setMentionText(mention);
+				gen.setCasProcessorId(this.getClass().toString());
+				gen.setConfidence(conf);
 				gen.addToIndexes();
 				begin = -1;
 			}

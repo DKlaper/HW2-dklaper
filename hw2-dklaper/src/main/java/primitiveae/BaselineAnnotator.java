@@ -52,6 +52,8 @@ public class BaselineAnnotator extends JCasAnnotator_ImplBase {
 				// add the mention
 				GeneMention gen = new GeneMention(aJCas, begin, end);
 				gen.setMentionText(text.substring(entry.getKey(), entry.getValue()));
+				gen.setCasProcessorId(this.getClass().toString());
+				gen.setConfidence(0.17); // confidence based on F1 score on test data
 				gen.addToIndexes();
 			}
 			
