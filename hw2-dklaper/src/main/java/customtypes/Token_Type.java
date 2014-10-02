@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** Custom Token that contains pos
- * Updated by JCasGen Wed Oct 01 19:07:51 EDT 2014
+ * Updated by JCasGen Wed Oct 01 20:04:32 EDT 2014
  * @generated */
 public class Token_Type extends edu.cmu.deiis.types.Token_Type {
   /** @generated 
@@ -68,6 +68,30 @@ public class Token_Type extends edu.cmu.deiis.types.Token_Type {
     ll_cas.ll_setStringValue(addr, casFeatCode_partOfSpeech, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_wordform;
+  /** @generated */
+  final int     casFeatCode_wordform;
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
+  public String getWordform(int addr) {
+        if (featOkTst && casFeat_wordform == null)
+      jcas.throwFeatMissing("wordform", "customtypes.Token");
+    return ll_cas.ll_getStringValue(addr, casFeatCode_wordform);
+  }
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
+  public void setWordform(int addr, String v) {
+        if (featOkTst && casFeat_wordform == null)
+      jcas.throwFeatMissing("wordform", "customtypes.Token");
+    ll_cas.ll_setStringValue(addr, casFeatCode_wordform, v);}
+    
+  
 
 
 
@@ -83,6 +107,10 @@ public class Token_Type extends edu.cmu.deiis.types.Token_Type {
  
     casFeat_partOfSpeech = jcas.getRequiredFeatureDE(casType, "partOfSpeech", "uima.cas.String", featOkTst);
     casFeatCode_partOfSpeech  = (null == casFeat_partOfSpeech) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_partOfSpeech).getCode();
+
+ 
+    casFeat_wordform = jcas.getRequiredFeatureDE(casType, "wordform", "uima.cas.String", featOkTst);
+    casFeatCode_wordform  = (null == casFeat_wordform) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_wordform).getCode();
 
   }
 }

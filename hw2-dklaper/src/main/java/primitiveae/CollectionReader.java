@@ -21,7 +21,7 @@ public class CollectionReader extends CollectionReader_ImplBase {
 	public void initialize()
 	{
 		// open the resource
-		// @TODO okay
+		// @TODO check path
 		String path = (String)getConfigParameterValue("InputFile");
 		try {
 			FileReader read = new FileReader(path);

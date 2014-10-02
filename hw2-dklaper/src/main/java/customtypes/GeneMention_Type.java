@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import edu.cmu.deiis.types.Annotation_Type;
 
 /** A gene mention including text
- * Updated by JCasGen Wed Oct 01 19:07:51 EDT 2014
+ * Updated by JCasGen Wed Oct 01 20:04:32 EDT 2014
  * @generated */
 public class GeneMention_Type extends Annotation_Type {
   /** @generated 

@@ -10,8 +10,8 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 /** Custom Token that contains pos
- * Updated by JCasGen Wed Oct 01 19:07:51 EDT 2014
- * XML source: /usr/data/CMU/791/HW0/hw2-dklaper/src/main/resources/descriptors/deiis_types.xml
+ * Updated by JCasGen Wed Oct 01 20:04:32 EDT 2014
+ * XML source: /usr/data/CMU/791/HW2-dklaper/hw2-dklaper/src/main/resources/descriptors/deiis_types.xml
  * @generated */
 public class Token extends edu.cmu.deiis.types.Token {
   /** @generated
@@ -95,6 +95,28 @@ public class Token extends edu.cmu.deiis.types.Token {
     if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_partOfSpeech == null)
       jcasType.jcas.throwFeatMissing("partOfSpeech", "customtypes.Token");
     jcasType.ll_cas.ll_setStringValue(addr, ((Token_Type)jcasType).casFeatCode_partOfSpeech, v);}    
+   
+    
+  //*--------------*
+  //* Feature: wordform
+
+  /** getter for wordform - gets wordform of this token (so we don't have to calculate offsets all the time)
+   * @generated
+   * @return value of the feature 
+   */
+  public String getWordform() {
+    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_wordform == null)
+      jcasType.jcas.throwFeatMissing("wordform", "customtypes.Token");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((Token_Type)jcasType).casFeatCode_wordform);}
+    
+  /** setter for wordform - sets wordform of this token (so we don't have to calculate offsets all the time) 
+   * @generated
+   * @param v value to set into the feature 
+   */
+  public void setWordform(String v) {
+    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_wordform == null)
+      jcasType.jcas.throwFeatMissing("wordform", "customtypes.Token");
+    jcasType.ll_cas.ll_setStringValue(addr, ((Token_Type)jcasType).casFeatCode_wordform, v);}    
   }
 
     
