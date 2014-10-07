@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cpeDescription>
+<collectionReader>
+<collectionIterator>
+<descriptor>
+<import name="descriptors/collectionReaderDescriptor"/>
+</descriptor>
+</collectionIterator>
+</collectionReader>
+<casProcessors casPoolSize="5"
+processingUnitThreadCount="1">
+
+<casProcessor deployment="integrated" name="Recognizer" >
+<descriptor>
+<import name="hw2-dklaper-aae"/>
+</descriptor>
+<filter></filter>
+<errorHandling>
+<maxConsecutiveRestarts action="terminate"
+value="100"/>
+<errorRateThreshold action="terminate" value="10/10000"/>
+<timeout max="10000"/>
+</errorHandling>
+</casProcessor>
+
+<casProcessor deployment="integrated" name="Consumer" >
+<descriptor>
+<import name="descriptors/resultConsumerDescriptor"/>
+</descriptor>
+<filter></filter>
+<errorHandling>
+<maxConsecutiveRestarts action="terminate"
+value="100"/>
+<errorRateThreshold action="terminate" value="10/10000"/>
+<timeout max="10000"/>
+</errorHandling>
+</casProcessor>
+
+</casProcessors>
+<cpeConfig>
+        <numToProcess>-1</numToProcess>
+        <deployAs>immediate</deployAs>
+</cpeConfig>
+</cpeDescription>

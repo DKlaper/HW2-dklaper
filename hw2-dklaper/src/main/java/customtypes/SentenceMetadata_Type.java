@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.cas.TOP_Type;
 
 /** Identify the sentence
- * Updated by JCasGen Wed Oct 01 20:04:32 EDT 2014
+ * Updated by JCasGen Mon Oct 06 19:32:21 EDT 2014
  * @generated */
 public class SentenceMetadata_Type extends TOP_Type {
   /** @generated 

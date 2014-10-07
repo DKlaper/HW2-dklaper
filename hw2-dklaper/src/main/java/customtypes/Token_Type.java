@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** Custom Token that contains pos
- * Updated by JCasGen Wed Oct 01 20:04:32 EDT 2014
+ * Updated by JCasGen Mon Oct 06 19:32:21 EDT 2014
  * @generated */
 public class Token_Type extends edu.cmu.deiis.types.Token_Type {
   /** @generated 
@@ -70,26 +70,26 @@ public class Token_Type extends edu.cmu.deiis.types.Token_Type {
   
  
   /** @generated */
-  final Feature casFeat_wordform;
+  final Feature casFeat_wordForm;
   /** @generated */
-  final int     casFeatCode_wordform;
+  final int     casFeatCode_wordForm;
   /** @generated
    * @param addr low level Feature Structure reference
    * @return the feature value 
    */ 
-  public String getWordform(int addr) {
-        if (featOkTst && casFeat_wordform == null)
-      jcas.throwFeatMissing("wordform", "customtypes.Token");
-    return ll_cas.ll_getStringValue(addr, casFeatCode_wordform);
+  public String getWordForm(int addr) {
+        if (featOkTst && casFeat_wordForm == null)
+      jcas.throwFeatMissing("wordForm", "customtypes.Token");
+    return ll_cas.ll_getStringValue(addr, casFeatCode_wordForm);
   }
   /** @generated
    * @param addr low level Feature Structure reference
    * @param v value to set 
    */    
-  public void setWordform(int addr, String v) {
-        if (featOkTst && casFeat_wordform == null)
-      jcas.throwFeatMissing("wordform", "customtypes.Token");
-    ll_cas.ll_setStringValue(addr, casFeatCode_wordform, v);}
+  public void setWordForm(int addr, String v) {
+        if (featOkTst && casFeat_wordForm == null)
+      jcas.throwFeatMissing("wordForm", "customtypes.Token");
+    ll_cas.ll_setStringValue(addr, casFeatCode_wordForm, v);}
     
   
 
@@ -109,8 +109,8 @@ public class Token_Type extends edu.cmu.deiis.types.Token_Type {
     casFeatCode_partOfSpeech  = (null == casFeat_partOfSpeech) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_partOfSpeech).getCode();
 
  
-    casFeat_wordform = jcas.getRequiredFeatureDE(casType, "wordform", "uima.cas.String", featOkTst);
-    casFeatCode_wordform  = (null == casFeat_wordform) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_wordform).getCode();
+    casFeat_wordForm = jcas.getRequiredFeatureDE(casType, "wordForm", "uima.cas.String", featOkTst);
+    casFeatCode_wordForm  = (null == casFeat_wordForm) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_wordForm).getCode();
 
   }
 }

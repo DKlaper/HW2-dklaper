@@ -28,7 +28,7 @@ public class LingpipeTokenizer extends JCasAnnotator_ImplBase {
 		{
 			// add annotation
 			Token tok = new Token(aJCas, begin, end);
-			tok.setWordform(token);
+			tok.setWordForm(token);
 			tok.addToIndexes();
 			
 			// update token values 

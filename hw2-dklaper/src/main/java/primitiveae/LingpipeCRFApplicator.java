@@ -11,7 +11,7 @@ import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 
-import utils.Feature;
+import trainCRF.helpers.Feature;
 import customtypes.*;
 
 import com.aliasi.crf.ChainCrf;
@@ -46,7 +46,7 @@ public class LingpipeCRFApplicator extends JCasAnnotator_ImplBase {
 		for(Annotation ann : idx)
 		{ // get tokens
 			Token tok = (Token)ann;
-			Feature feat = new Feature(tok.getWordform(), tok.getPartOfSpeech());
+			Feature feat = new Feature(tok.getWordForm(), tok.getPartOfSpeech());
 			data.add(feat);
 		}
 		
@@ -75,7 +75,7 @@ public class LingpipeCRFApplicator extends JCasAnnotator_ImplBase {
 				GeneMention gen = new GeneMention(aJCas, begin, tok.getEnd());
 				String mention = getTextWS(begin, tok.getEnd(), sofa);
 				gen.setMentionText(mention);
-				gen.setCasProcessorId(this.getClass().toString());
+				gen.setCasProcessorId(this.getClass().getName());
 				gen.setConfidence(conf);
 				gen.addToIndexes();
 				begin = -1;

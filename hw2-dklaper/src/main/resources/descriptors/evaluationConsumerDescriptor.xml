@@ -19,7 +19,9 @@
     <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs/>
+        <inputs>
+          <type allAnnotatorFeatures="true">customtypes.GeneMention</type>
+        </inputs>
         <outputs/>
         <languagesSupported/>
       </capability>
@@ -44,9 +46,9 @@
         <name>evalData</name>
         <description>the data file with the sample output</description>
         <fileResourceSpecifier>
-          <fileUrl>gold.out</fileUrl>
+          <fileUrl>data/gold.out</fileUrl>
         </fileResourceSpecifier>
-        <implementationName>resources.EvalMap_Impl</implementationName>
+        <implementationName>utils.EvalMap_Impl</implementationName>
       </externalResource>
     </externalResources>
     <externalResourceBindings>

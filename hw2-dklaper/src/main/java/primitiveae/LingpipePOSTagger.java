@@ -44,7 +44,7 @@ public class LingpipePOSTagger extends JCasAnnotator_ImplBase {
 		for(Annotation anno : aJCas.getAnnotationIndex(Token.type))
 		{
 			Token tok = (Token) anno;
-			tokens.add(tok.getWordform());
+			tokens.add(tok.getWordForm());
 		}
 		
 		Tagging<String> res = tagger.tag(tokens);

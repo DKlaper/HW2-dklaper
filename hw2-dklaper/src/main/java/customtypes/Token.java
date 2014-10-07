@@ -10,7 +10,7 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 /** Custom Token that contains pos
- * Updated by JCasGen Wed Oct 01 20:04:32 EDT 2014
+ * Updated by JCasGen Mon Oct 06 19:32:21 EDT 2014
  * XML source: /usr/data/CMU/791/HW2-dklaper/hw2-dklaper/src/main/resources/descriptors/deiis_types.xml
  * @generated */
 public class Token extends edu.cmu.deiis.types.Token {
@@ -98,25 +98,25 @@ public class Token extends edu.cmu.deiis.types.Token {
    
     
   //*--------------*
-  //* Feature: wordform
+  //* Feature: wordForm
 
-  /** getter for wordform - gets wordform of this token (so we don't have to calculate offsets all the time)
+  /** getter for wordForm - gets wordform of this token (so we don't have to calculate offsets all the time)
    * @generated
    * @return value of the feature 
    */
-  public String getWordform() {
-    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_wordform == null)
-      jcasType.jcas.throwFeatMissing("wordform", "customtypes.Token");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((Token_Type)jcasType).casFeatCode_wordform);}
+  public String getWordForm() {
+    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_wordForm == null)
+      jcasType.jcas.throwFeatMissing("wordForm", "customtypes.Token");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((Token_Type)jcasType).casFeatCode_wordForm);}
     
-  /** setter for wordform - sets wordform of this token (so we don't have to calculate offsets all the time) 
+  /** setter for wordForm - sets wordform of this token (so we don't have to calculate offsets all the time) 
    * @generated
    * @param v value to set into the feature 
    */
-  public void setWordform(String v) {
-    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_wordform == null)
-      jcasType.jcas.throwFeatMissing("wordform", "customtypes.Token");
-    jcasType.ll_cas.ll_setStringValue(addr, ((Token_Type)jcasType).casFeatCode_wordform, v);}    
+  public void setWordForm(String v) {
+    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_wordForm == null)
+      jcasType.jcas.throwFeatMissing("wordForm", "customtypes.Token");
+    jcasType.ll_cas.ll_setStringValue(addr, ((Token_Type)jcasType).casFeatCode_wordForm, v);}    
   }
 
     

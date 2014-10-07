@@ -46,7 +46,7 @@ public class LingpipeNERAnnotator extends JCasAnnotator_ImplBase {
 			// add mention to CAS
 			GeneMention mention = new GeneMention(aJCas, begin, end);
 			mention.setMentionText(text.substring(chunk.start(), chunk.end()));
-			mention.setCasProcessorId(this.getClass().toString());
+			mention.setCasProcessorId(this.getClass().getName());
 			mention.setConfidence(conf);
 			mention.addToIndexes();
 		}
