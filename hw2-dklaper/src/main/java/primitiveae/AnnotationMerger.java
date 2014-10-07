@@ -2,6 +2,7 @@ package primitiveae;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
@@ -41,6 +42,8 @@ public class AnnotationMerger extends JCasAnnotator_ImplBase {
 		FSIterator<Annotation> allMentionsIt = aJCas.getAnnotationIndex(GeneMention.type).iterator();
 		
 		HashMap<MentionSpan, Integer> spanCounts = new HashMap<MentionSpan, Integer>();
+		// need to remember exactly which mention we kept
+		HashMap<MentionSpan, MentionSpan> spanKeys = new HashMap<MentionSpan, MentionSpan>();
 		
 		// add mentions to the interval tree
 		// also count which identical spans occur multiple times
@@ -56,9 +59,11 @@ public class AnnotationMerger extends JCasAnnotator_ImplBase {
 			// count identical spans
 			if (!spanCounts.containsKey(span))
 			{
+				spanKeys.put(span, span);
 				spanCounts.put(span, 1);
 			}else{
-				spanCounts.put(span, 1+spanCounts.get(span));
+				MentionSpan key = spanKeys.get(span); // lets not change the key
+				spanCounts.put(key, 1+spanCounts.get(key));
 				// also if known remove this span
 				toRemove.add(span);
 				continue; // don't add it to the interval tree since we already have the same span
@@ -71,16 +76,41 @@ public class AnnotationMerger extends JCasAnnotator_ImplBase {
 		{
 			msp.getGene().removeFromIndexes();
 		}
-		
-		// Now look at overlapping instances 
+		// the interval tree remove method throws random nullpointer exceptions thus we need an alternative.
+		HashSet<MentionSpan> deleted = new HashSet<MentionSpan>();
+		// Now keep only probable instances 
 		for(MentionSpan msp : spanCounts.keySet())
 		{
 			if(spanCounts.get(msp) < 2 && !msp.getGene().getCasProcessorId().equals(preferred))
 			{
+				deleted.add(msp);
 				msp.getGene().removeFromIndexes();
 			}
 		}
 		
+		// second round of cleaning remove overlapping instances
+		for(MentionSpan msp : spanCounts.keySet())
+		{
+			if(deleted.contains(msp))
+			{
+				continue;
+			}
+			
+			if(msp.getGene().getCasProcessorId().equals(preferred))
+			{
+				// remove all mentions that overlap with mentions that were found by lingpipe
+				for(MentionSpan ovrlap : intTree.getOverlapping(msp))
+				{
+					if(ovrlap == msp) // don't remove 
+					{
+						continue;
+					}
+					deleted.add(ovrlap);
+					ovrlap.getGene().removeFromIndexes();
+					
+				}
+			}
+		}
 	}
 
 }

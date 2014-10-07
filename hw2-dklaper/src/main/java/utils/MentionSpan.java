@@ -11,6 +11,9 @@ import edu.stanford.nlp.util.Interval;
 public class MentionSpan implements HasInterval<Integer> {
 
 	private GeneMention gene;
+	// cache start an end in case GeneMention is null
+	private int start;
+	private int end;
 
 	public GeneMention getGene()
 	{
@@ -24,6 +27,8 @@ public class MentionSpan implements HasInterval<Integer> {
 	public MentionSpan(GeneMention genesuper)
 	{
 		gene = genesuper;
+		start = gene.getBegin();
+		end = gene.getEnd();
 	}
 	
 	/**
@@ -31,14 +36,14 @@ public class MentionSpan implements HasInterval<Integer> {
 	 */
 	@Override
 	public Interval<Integer> getInterval() {
-		return new IntegerInterval(gene.getBegin(), gene.getEnd());
+		return new IntegerInterval(start, end);
 	}
 	
 	// overriding comparison operators for use in hashmap
 	@Override
 	public int hashCode()
 	{
-		return ((Integer)gene.getBegin()).hashCode()+1000*((Integer)gene.getEnd()).hashCode();
+		return ((Integer)start).hashCode()+1000*((Integer)end).hashCode();
 	}
 	
 	@Override
