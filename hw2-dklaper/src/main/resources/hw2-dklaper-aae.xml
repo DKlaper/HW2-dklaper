@@ -33,7 +33,6 @@
         <node>abnerDescriptor</node>
         <node>aggregateLingpipeCRF</node>
         <node>annotationMergerDescriptor</node>
-      <node>evaluationConsumerDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <typePriorities/>

@@ -23,7 +23,12 @@ public class ABnerAnnotator extends JCasAnnotator_ImplBase {
 	public void initialize(UimaContext aContext)
 			throws ResourceInitializationException {
 		super.initialize(aContext);
-		tag = new Tagger(Tagger.NLPBA);
+		Integer mode = Tagger.BIOCREATIVE;
+		try{
+			mode = Tagger.class.getField((String)aContext.getConfigParameterValue("modelName")).getInt(null);
+		}catch(Exception e) // ignore  if can't be found
+		{}
+		tag = new Tagger(mode);
 	}
 
 	@Override
