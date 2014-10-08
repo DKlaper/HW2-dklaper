@@ -1,7 +1,5 @@
 package primitiveae;
 
-import java.io.File;
-
 import org.apache.uima.UIMARuntimeException;
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
@@ -25,7 +23,7 @@ public class LingpipeNERAnnotator extends JCasAnnotator_ImplBase {
 	public void initialize(UimaContext aUimaContext)
 	{
 		try {
-			chunker = (NBestChunker)AbstractExternalizable.readObject(new File(aUimaContext.getResourceFilePath("LingpipeModel")));
+			chunker = (NBestChunker)AbstractExternalizable.readResourceObject((String)aUimaContext.getConfigParameterValue("LingpipeModel"));
 		} catch (Exception e) {
 			throw new UIMARuntimeException(e);
 		} 

@@ -8,8 +8,23 @@
     <description/>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters/>
-    <configurationParameterSettings/>
+    <configurationParameters>
+      <configurationParameter>
+        <name>LingpipeModel</name>
+        <description>Lingpipe HMMChunker Model</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>LingpipeModel</name>
+        <value>
+          <string>/models/ne-en-bio-genetag.HmmChunker</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
     <typeSystemDescription>
       <imports>
         <import name="descriptors/deiis_types"/>
@@ -32,35 +47,6 @@
       <outputsNewCASes>false</outputsNewCASes>
     </operationalProperties>
   </analysisEngineMetaData>
-  <externalResourceDependencies>
-    <externalResourceDependency>
-      <key>LingpipeModel</key>
-      <description>The model used by lingpipe to chunk the text</description>
-      <optional>false</optional>
-    </externalResourceDependency>
-  </externalResourceDependencies>
   <resourceManagerConfiguration>
-    <externalResources>
-      <externalResource>
-        <name>GenetagModel</name>
-        <description>The chunker model for lingpipe based on genetag data</description>
-        <fileResourceSpecifier>
-          <fileUrl>models/ne-en-bio-genetag.HmmChunker</fileUrl>
-        </fileResourceSpecifier>
-      </externalResource>
-      <externalResource>
-        <name>GeniaModel</name>
-        <description>LingPipe chunker based on Genia model</description>
-        <fileResourceSpecifier>
-          <fileUrl>models/ne-en-bio-genia.TokenShapeChunker</fileUrl>
-        </fileResourceSpecifier>
-      </externalResource>
-    </externalResources>
-    <externalResourceBindings>
-      <externalResourceBinding>
-        <key>LingpipeModel</key>
-        <resourceName>GenetagModel</resourceName>
-      </externalResourceBinding>
-    </externalResourceBindings>
-  </resourceManagerConfiguration>
+    </resourceManagerConfiguration>
 </analysisEngineDescription>

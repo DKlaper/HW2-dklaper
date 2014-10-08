@@ -7,16 +7,13 @@
     <delegateAnalysisEngine key="lingpipeNERDescriptor">
       <import name="descriptors.lingpipeNERDescriptor"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="evaluationConsumerDescriptor">
-      <import name="descriptors.evaluationConsumerDescriptor"/>
-    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="abnerDescriptor">
       <import name="descriptors.abnerDescriptor"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="aggregateLingpipeCRF">
       <import name="descriptors.aggregateLingpipeCRF"/>
     </delegateAnalysisEngine>
-  <delegateAnalysisEngine key="annotationMergerDescriptor">
+    <delegateAnalysisEngine key="annotationMergerDescriptor">
       <import name="descriptors.annotationMergerDescriptor"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>

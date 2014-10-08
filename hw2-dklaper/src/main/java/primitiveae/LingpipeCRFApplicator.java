@@ -1,6 +1,5 @@
 package primitiveae;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import org.apache.uima.UIMARuntimeException;
@@ -31,7 +30,7 @@ public class LingpipeCRFApplicator extends JCasAnnotator_ImplBase {
 	public void initialize(UimaContext aUimaContext)
 	{
 		try {
-			crf = (ChainCrf<Feature>) AbstractExternalizable.readObject(new File(aUimaContext.getResourceFilePath("ModelFile")));
+			crf = (ChainCrf<Feature>) AbstractExternalizable.readResourceObject((String)aUimaContext.getConfigParameterValue("ModelName"));
 		} catch (Exception e)
 		{
 			throw new UIMARuntimeException(e);
